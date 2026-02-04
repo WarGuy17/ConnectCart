@@ -8,5 +8,5 @@ import { LoginHeader } from '../login-header/login-header';
   styleUrl: './cart.css',
 })
 export class Cart {
-
+ productTitle = 'Placeholder'
 }
