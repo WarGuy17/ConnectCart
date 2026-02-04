@@ -1,0 +1,28 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    height: 150px;
+    align-items: center;
+    border-bottom: 2px solid black;
+    flex-wrap: wrap;
+}
+
+#logo {
+    display: flex;
+    width: 150px;
+    height: 150px;
+}
+
+.searchbar {
+    display: flex;
+}
+
+.account_login {
+    display: flex;
+}
