@@ -1,32 +1,46 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
 .background{
     display: flex;
     width: 100%;
     height: 1000px;
-    border: 1px dotted red;
+    border: 1px solid black;
     justify-content: center;
     background-color: lightgrey;
 }
 
+.cart-title {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+}
+
 .cart_background {
     display: flex;
-    border: 1px dotted blue;
+    border: 1px solid black;
     width: 45%;
     height: 100%;
     justify-content: center;
-    background-color: aqua;
+    background-color: white;
     margin-top: 20px;
 }
 
 .card_box {
     display: flex;
-    border: 1px dotted green;
+    border: 1px solid black;
     width: 50%;
     height: 35%;
     margin: 15px;
-    background-color: white;
+    background-color: lightcyan;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    padding: 15px;
 }
 
 .purchase_box {
@@ -55,7 +69,7 @@
 .button2 {
     width: 40px;
     height: 30px;
-    background-color: green;
+    background-color: lightgreen;
     border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
@@ -97,17 +111,23 @@
 
 .product-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+    justify-content: space-between;
+    width: 100%;
     height: auto;
+    margin: 0 30px;
 }
 
-.price-section2 {
+.middle-section-card {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 49%;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 80%;
+}
+
+.product-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     height: auto;
-    
+    margin-top: 20px;
 }
