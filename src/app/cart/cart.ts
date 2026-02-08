@@ -8,5 +8,8 @@ import { LoginHeader } from '../login-header/login-header';
   styleUrl: './cart.css',
 })
 export class Cart {
- productTitle = 'Placeholder'
+ productTitle = 'Placeholder';
+ cartTotal = 'Cart Total';
+ cartProductName = 'Product Name';
+ cartProductPrice = 'Product Price';
 }
