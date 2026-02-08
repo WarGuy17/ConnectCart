@@ -7,7 +7,7 @@
     display: flex;
     width: 100%;
     justify-content: space-around;
-    height: 150px;
+    height: 9.375rem;
     align-items: center;
     border-bottom: 2px solid black;
     flex-wrap: wrap;
@@ -15,8 +15,8 @@
 
 #logo {
     display: flex;
-    width: 150px;
-    height: 150px;
+    width: 7rem;
+    height: 7rem;
 }
 
 .searchbar {

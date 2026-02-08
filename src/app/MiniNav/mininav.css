@@ -4,14 +4,14 @@ ul {
 
 ul li {
     list-style: none;
-    padding: 10px;
+    padding: 0.625rem;
 }
 
 ul li a {
     text-decoration: none;
     border: 1px solid black;
-    padding: 10px;
-    border-radius: 7px;
+    padding: 0.625rem;
+    border-radius: 0.438rem;
 }
 
 ul li a:hover {

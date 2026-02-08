@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './navigation.css',
 })
 export class Navigation {
-  navigation = [
+  navigation = [ //different categories of products for the user//
     'Shoes',
     'Clothes',
     'Hats',
