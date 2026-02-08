@@ -9,6 +9,7 @@ import { LoginHeader } from '../login-header/login-header';
 })
 export class Cart {
  productTitle = 'Placeholder';
+ productPrice = 'Price: 20$'
  cartTotal = 'Cart Total';
  cartProductName = 'Product Name';
  cartProductPrice = 'Product Price';
