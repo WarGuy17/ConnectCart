@@ -1,1 +1,10 @@
-<p>womens-clothing works!</p>
+<app-login-header/>
+<div class="product_background">
+@for(clothing of womensClothing; track clothing){
+    <div class="product">
+        <p>{{clothing.title}}</p>
+        <img [src]="clothing.image" width="100">
+        <p>{{clothing.price}}</p>
+    </div>
+}
+</div>
