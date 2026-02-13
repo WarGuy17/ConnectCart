@@ -6,13 +6,25 @@ ul {
     margin-top: 0px;
     background-color: lightgray;
     padding: 5px;
+    height: 2.5rem;
+    align-items: center;
 }
 
 ul li {
     list-style: none;
+}
+
+ul li a{
+    text-decoration: none;
     margin-left: 15px;
     border: 1px solid black;
     padding: 8px;
     border-radius: 7px;
+    background-color: rgb(62, 159, 251);
+    color: white;
+}
+
+ul li a:hover {
+    color:rgb(62, 159, 251);
     background-color: white;
 }

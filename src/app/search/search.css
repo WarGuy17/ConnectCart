@@ -1,7 +1,9 @@
 .form input {
     padding: 6px;
+    margin-right: 0.8rem;
 }
 
 .form button {
     padding: 6px;
+    border-radius: 0.2rem;
 }

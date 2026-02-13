@@ -13,6 +13,10 @@ import { UsersService } from '../users-service';
 })
 export class Home {
   usersService = inject(UsersService);
+  products = this.usersService.products;
 
+  loadProducts(){
+    return this.usersService.loadProducts()
+  }
   
 }

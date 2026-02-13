@@ -1,6 +1,20 @@
 <ul>
     @for(nav of navigation;track nav){
-    <li>{{nav}}</li>
+        @switch(nav){
+            @case ('Mens Clothing') {
+                <li><a routerLink="/mens-clothing">{{nav}}</a></li>
+            }
+            @case ('Womens Clothing') {
+                <li><a routerLink="/womens-clothing">Womens Clothing</a></li>
+            }
+            @case ('Electronics') {
+                <li><a routerLink="/electronics">Electronics</a></li>
+            }
+            @case ('Jewelry') {
+                <li><a routerLink="/jewelry">Jewelry</a></li>
+            }
+            
+        }
     }
 </ul>
 
