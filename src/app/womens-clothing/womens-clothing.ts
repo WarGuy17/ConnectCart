@@ -11,11 +11,7 @@ import { LoginHeader } from '../login-header/login-header';
 export class WomensClothing {
   productService = inject(UsersService);
 
-  ngOnInit(){
-    this.productService.loadCategory("womens's clothing")
-  }
-
   get womensClothing(){
-    return this.productService.loadedProducts;
+    return this.productService.womenProducts;
   }
 }

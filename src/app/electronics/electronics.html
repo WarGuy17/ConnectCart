@@ -1,1 +1,9 @@
-<p>electronics works!</p>
+<app-login-header/>
+<div class="product_background">
+    @for(electronic of electronics; track electronic){
+    <div class="product">
+        <p>{{electronic.title}}</p>
+        <img [src]="electronic.image" width="100">
+        <p>Price: {{electronic.price}}</p>
+    </div>
+    }

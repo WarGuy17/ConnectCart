@@ -12,12 +12,8 @@ import { Product } from '../users-service';
 export class MensClothing {
   productService = inject(UsersService);
 
-  ngOnInit(){
-    this.productService.loadCategory("men's clothing");
-  }
-
   get mensClothing(){
-    return this.productService.loadedProducts;
+    return this.productService.menProducts;
   }
 
 

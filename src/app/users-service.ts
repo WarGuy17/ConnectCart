@@ -15,16 +15,31 @@ export class UsersService {
       })
   }
 
-  loadedProducts :Product[]  = []
+  constructor() {
+    this.loadCategory("men's clothing");
+    this.loadCategory("women's clothing");
+    this.loadCategory("electronics");
+  }
+
+  menProducts :Product[]  = []
+  womenProducts :Product[]  = []
+  electronicsProducts :Product[]  = []
 
   loadCategory(category: string) {
-    const encoded = encodeURIComponent(category)
+    const encoded = encodeURIComponent(category);
     fetch(`https://fakestoreapi.com/products/category/${encoded}`)
       .then(response => response.json())
-      .then(data =>{
-        this.loadedProducts = data;
-        console.log('Products loaded:', this.loadedProducts)
+      .then((data: Product[]) => {
+        if (category === "men's clothing") {
+          this.menProducts = data;
+        } else if (category === "women's clothing") {
+          this.womenProducts = data;
+          console.log('Products loaded:', this.womenProducts);
+        } else if (category === "electronics") {
+          this.electronicsProducts = data;
+        }
       })
+      .catch(err => console.error(`Error loading category ${category}:`, err));
   }
 }
 
