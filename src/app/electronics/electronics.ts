@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { UsersService } from '../users-service';
 import { LoginHeader } from '../login-header/login-header';
 
@@ -8,10 +8,14 @@ import { LoginHeader } from '../login-header/login-header';
   templateUrl: './electronics.html',
   styleUrl: './electronics.css',
 })
-export class Electronics {
+export class Electronics implements OnInit {
   userService = inject(UsersService);
 
+  ngOnInit() {
+    this.userService.loadCategory("electronics");
+  }
+
   get electronics(){
-    return this.userService.electronicsProducts;
+    return this.userService.electronicsProducts();
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -15,15 +15,10 @@ export class UsersService {
       })
   }
 
-  constructor() {
-    this.loadCategory("men's clothing");
-    this.loadCategory("women's clothing");
-    this.loadCategory("electronics");
-  }
-
-  menProducts :Product[]  = []
-  womenProducts :Product[]  = []
-  electronicsProducts :Product[]  = []
+  womenProducts = signal<Product[]>([]);
+  mensProducts = signal<Product[]>([]);
+  electronicsProducts = signal<Product[]>([]);
+  jewelryProducts = signal<Product[]>([]);
 
   loadCategory(category: string) {
     const encoded = encodeURIComponent(category);
@@ -31,12 +26,14 @@ export class UsersService {
       .then(response => response.json())
       .then((data: Product[]) => {
         if (category === "men's clothing") {
-          this.menProducts = data;
+          this.mensProducts.set(data);
         } else if (category === "women's clothing") {
-          this.womenProducts = data;
-          console.log('Products loaded:', this.womenProducts);
+          this.womenProducts.set(data);
+          console.log('Products loaded:', this.womenProducts());
         } else if (category === "electronics") {
-          this.electronicsProducts = data;
+          this.electronicsProducts.set(data);
+        } else if (category === "jewelery") {
+          this.jewelryProducts.set(data);
         }
       })
       .catch(err => console.error(`Error loading category ${category}:`, err));

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { UsersService } from '../users-service';
 import { LoginHeader } from '../login-header/login-header';
 import { Product } from '../users-service';
@@ -9,11 +9,15 @@ import { Product } from '../users-service';
   templateUrl: './mens-clothing.html',
   styleUrl: './mens-clothing.css',
 })
-export class MensClothing {
+export class MensClothing implements OnInit {
   productService = inject(UsersService);
 
+  ngOnInit() {
+    this.productService.loadCategory("men's clothing");
+  }
+
   get mensClothing(){
-    return this.productService.menProducts;
+    return this.productService.mensProducts();
   }
 
 
