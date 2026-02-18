@@ -1,10 +1,11 @@
 <app-login-header/>
+<app-navigation/>
 <div class="product_background">
     @for(clothing of mensClothing; track clothing){
     <div class="product">
         <p>{{clothing.title}}</p>
         <img [src]="clothing.image" width="100">
-        <p>Price: {{clothing.price}}</p>
+        <p>Price: ${{clothing.price}}</p>
     </div>
     }
 </div>

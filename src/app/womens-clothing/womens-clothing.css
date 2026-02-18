@@ -17,3 +17,11 @@
     align-items: center;
     padding: 10px;
 }
+
+.empty {
+    display: flex;
+    width: 350px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}

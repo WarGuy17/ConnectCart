@@ -1,10 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { UsersService } from '../users-service';
 import { LoginHeader } from '../login-header/login-header';
+import { Navigation } from '../navigation/navigation';
 
 @Component({
   selector: 'app-womens-clothing',
-  imports: [LoginHeader],
+  imports: [LoginHeader, Navigation],
   templateUrl: './womens-clothing.html',
   styleUrl: './womens-clothing.css',
 })
