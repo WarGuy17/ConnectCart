@@ -6,6 +6,10 @@ import { Injectable, signal } from '@angular/core';
 export class UsersService {
   products = [];
 
+  constructor() {
+    this.loadProducts();
+  }
+
   loadProducts() {
     fetch('https://fakestoreapi.com/products')
       .then(response => response.json())

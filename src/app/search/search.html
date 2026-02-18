@@ -1,4 +1,8 @@
-<form class="form">
-    <input placeholder="Search here">
+<form 
+    [formGroup]="form"
+    (ngSubmit) = "onSubmit()">
+    <input 
+        formControlName="search"
+        placeholder="Search here">
     <button>Search</button>
 </form>

@@ -6,6 +6,7 @@ import { MensClothing } from './mens-clothing/mens-clothing';
 import { WomensClothing } from './womens-clothing/womens-clothing';
 import { Electronics } from './electronics/electronics';
 import { Jewelry } from './jewelry/jewelry';
+import { Searchresults } from './searchresults/searchresults';
 
 export const routes: Routes = [
     {
@@ -40,6 +41,10 @@ export const routes: Routes = [
     {
         path: 'jewelry',
         component: Jewelry
-    }
+    },
+    {
+        path: 'searchresults',
+        component: Searchresults
+    },
 
 ];
