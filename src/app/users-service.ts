@@ -4,7 +4,7 @@ import { Injectable, signal } from '@angular/core';
   providedIn: 'root',
 })
 export class UsersService {
-  products = [];
+  products: Product[] = [];
 
   constructor() {
     this.loadProducts();

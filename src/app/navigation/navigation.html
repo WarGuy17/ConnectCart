@@ -2,7 +2,7 @@
     @for(nav of navigation;track nav){
         @switch(nav){
             @case ('Mens Clothing') {
-                <li><a routerLink="/mens-clothing">{{nav}}</a></li>
+                <li (click)="getCategory('mens')">{{nav}}</li>
             }
             @case ('Womens Clothing') {
                 <li><a routerLink="/womens-clothing">Womens Clothing</a></li>

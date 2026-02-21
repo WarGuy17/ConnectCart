@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Route, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -13,5 +13,14 @@ export class Navigation {
     'Womens Clothing',
     'Electronics',
     'Jewelry',
-  ]
+  ];
+
+  constructor(private router: Router) {}
+
+  getCategory(category: string) {
+    this.router.navigate(['/searchresults'], {
+      queryParams: {category},
+      queryParamsHandling: 'merge'
+    })
+  }
 }
