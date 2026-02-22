@@ -8,6 +8,10 @@ export class UsersService {
 
   constructor() {
     this.loadProducts();
+    this.loadCategory("men's clothing");
+    this.loadCategory("women's clothing");
+    this.loadCategory("electronics");
+    this.loadCategory("jewelery");
   }
 
   loadProducts() {

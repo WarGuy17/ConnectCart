@@ -40,16 +40,16 @@ export class Searchresults implements OnInit{
 
     switch(this.category){
       case 'mens':
-        results = results.filter((product: any) => product.category === "men's clothing");
+        results = this.userService.mensProducts();;
         break;
       case 'womens':
-        results = results.filter((product: any) => product.category === "women's clothing");
+        results = this.userService.womenProducts();
         break;
       case 'electronics':
-        results = results.filter((product: any) => product.category === "electronics");
+        results = this.userService.electronicsProducts();
         break;
       case 'jewelry':
-        results = results.filter((product: any) => product.category === "jewelry"); 
+        results = this.userService.jewelryProducts();
         break;
     }
     console.log(results);
