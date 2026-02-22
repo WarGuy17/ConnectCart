@@ -7,6 +7,8 @@ import { WomensClothing } from './womens-clothing/womens-clothing';
 import { Electronics } from './electronics/electronics';
 import { Jewelry } from './jewelry/jewelry';
 import { Searchresults } from './searchresults/searchresults';
+import { Practice } from './practice/practice';
+import { Practicetwo } from './practicetwo/practicetwo';
 
 export const routes: Routes = [
     {
@@ -46,5 +48,13 @@ export const routes: Routes = [
         path: 'searchresults',
         component: Searchresults
     },
+    {
+        path: 'practice',
+        component: Practice
+    },
+    {
+        path: 'practice2',
+        component: Practicetwo
+    }
 
 ];

@@ -38,17 +38,21 @@ export class Searchresults implements OnInit{
       });
     }
 
-    if(this.category) {//this looks at the category and see if it exists.
-      const lowerCat = this.category.toLowerCase();//this lower cases the category
-      results = results.filter((product: any)=> {//this takes the results and filters it with product: any
-        product.category.toLowerCase() === lowerCat//this checks the product category and compares each one to the one pushed at the top.
-      })
+    switch(this.category){
+      case 'mens':
+        results = results.filter((product: any) => product.category === "men's clothing");
+        break;
+      case 'womens':
+        results = results.filter((product: any) => product.category === "women's clothing");
+        break;
+      case 'electronics':
+        results = results.filter((product: any) => product.category === "electronics");
+        break;
+      case 'jewelry':
+        results = results.filter((product: any) => product.category === "jewelry"); 
+        break;
     }
-
-    if(this.category === 'mens') {
-      results = results.filter((product: any) => product.category === "men's clothing")
-    }
-    console.log(results)
+    console.log(results);
     this.filteredProducts = results;//results from either one put into the filtered products array
   }
 }
