@@ -1,25 +1,15 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../product-service';
 
 @Component({
   selector: 'app-practice',
-  imports: [ReactiveFormsModule],
+  imports: [],
   templateUrl: './practice.html',
   styleUrl: './practice.css',
 })
 export class Practice {
-  form = new FormGroup({
-    product: new FormControl('')
-  })
-
-  constructor (private router: Router) {}
-
-  onSubmit() {
-    const term = this.form.get('product')!.value ?? '';
-
-    this.router.navigate(['/practice2'],{
-      queryParams: {q: term}
-    })
-  }
+  route = inject(ActivatedRoute);
+  productService = inject(ProductService);
+  
 }

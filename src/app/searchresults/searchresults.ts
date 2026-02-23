@@ -1,59 +1,47 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UsersService } from '../users-service';
-import { Product } from '../users-service';
+import { LoginHeader } from '../login-header/login-header';
+import { ProductService } from '../product-service';
+import { AsyncPipe } from '@angular/common';
+import { Product } from '../product-service';
+import { switchMap, map } from 'rxjs';
 
 @Component({
   selector: 'app-searchresults',
-  imports: [],
+  imports: [LoginHeader, AsyncPipe],
   templateUrl: './searchresults.html',
   styleUrl: './searchresults.css',
 })
-export class Searchresults implements OnInit{
-  term = '';
-  category = '';
-  filteredProducts: any[] = [];
+export class Searchresults {
+  private route = inject(ActivatedRoute)
+  private productService = inject(ProductService);
+  products$ = this.route.queryParams.pipe(
+    switchMap(params =>
+      this.productService.getProducts().pipe(
+        map(products => this.applyFilters(products, params))
+      )
+    )
+  )
 
-  userService = inject(UsersService);
+  private applyFilters(products: Product[], params: any): Product[] {
+    const term = params['search']?.toLowerCase() ?? '';
+    let category = params['category']?.toLowerCase() ?? '';
 
-  constructor(private route: ActivatedRoute) {
-  }
+    const categoryMap: Record<string, string> = {
+      mens: "men's clothing",
+      womens: "women's clothing",
+      jewelry: "jewelery"
+    }
 
-  ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      this.term = params['q'] ?? '';
-      this.category = params['category'] ?? '';
-      this.applyFilter(this.term, this.category);
+    if(categoryMap[category]) {
+      category = categoryMap[category];
+    }
+
+    return products.filter(p => {
+      const matchesTerm = term ? p.title.toLowerCase().includes(term): true;
+      const matchesCategory = category ? p.category.toLowerCase() === category : true;
+      return matchesTerm && matchesCategory;
     })
-  }
-
-  applyFilter(term: string, category: string) {
-
-    let results: any[] = this.userService.products;//this simplifies the variable
-
-    if(this.term){//this looks at the term and see if it exists.
-      const lower = this.term.toLowerCase();//this takes that term and lowercases it.
-      results = results.filter((product: any)=>{//this takes the results at the top and filters it using product: any as the argument
-        product.title.toLowerCase().includes(lower)//this returns a product that includes that term pushed from the top
-      });
-    }
-
-    switch(this.category){
-      case 'mens':
-        results = this.userService.mensProducts();;
-        break;
-      case 'womens':
-        results = this.userService.womenProducts();
-        break;
-      case 'electronics':
-        results = this.userService.electronicsProducts();
-        break;
-      case 'jewelry':
-        results = this.userService.jewelryProducts();
-        break;
-    }
-    console.log(results);
-    this.filteredProducts = results;//results from either one put into the filtered products array
   }
 }
 

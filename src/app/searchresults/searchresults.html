@@ -1,7 +1,10 @@
-@for(product of filteredProducts; track product) {
+<app-login-header/>
+
+@for (p of products$ | async; track p) {
     <div class="product">
-        <h2>{{product.title}}</h2>
-        <img [src] = "product.image" alt="{{product.image}}" width = 200>
-        <p>Price: ${{product.price}}</p>
+        <p>{{p.title}}</p>
+        <img [src]="p.image"width= 125>
+        <p>Price: ${{p.price}}</p>
     </div>
+    
 }
